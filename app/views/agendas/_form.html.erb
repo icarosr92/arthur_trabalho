@@ -1,0 +1,36 @@
+<%= form_for(@agenda) do |f| %>
+  <% if @agenda.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@agenda.errors.count, "error") %> prohibited this agenda from being saved:</h2>
+
+      <ul>
+      <% @agenda.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <td><b>Nome:</b> <br/><%= f.text_field :nome, placeholder: 'João' %></td>
+      <td><b>Sobrenome:</b> <br /><%= f.text_field :sobrenome, placeholder: 'Silva'  %></td>
+    </tr>
+    <tr>
+      <td colspan='2'><b>E-mail:</b> <br /><%= f.text_field :email, placeholder: '@exemple.com'  %></td>
+    </tr>
+    <tr>
+      <td><b>Telefones: </b> 
+          <br/>
+        <%= f.text_field :tel_residencial, placeholder: 'Residencial' %></td>
+      <td><br />
+        <%= f.text_field :tel_celular, placeholder: 'Celular' %></td>
+      <td><br />
+        <%= f.text_field :tel_comercial, placeholder: 'Comercial' %></td>
+    </tr>
+  </table>
+
+  <div class="actions">
+    <%= f.submit '+' %>
+  </div>
+<% end %>

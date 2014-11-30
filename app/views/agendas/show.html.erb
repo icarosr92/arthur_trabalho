@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Nome:</strong>
+  <%= @agenda.nome %> <%= @agenda.sobrenome %>
+</p>
+
+<p>
+  <strong>E-mail:</strong>
+  <%= @agenda.email %>
+</p>
+
+<p>
+  <strong>Telefone residencial:</strong>
+  <%= @agenda.tel_residencial %>
+</p>
+
+<p>
+  <strong>Telefone celular:</strong>
+  <%= @agenda.tel_celular %>
+</p>
+
+<p>
+  <strong>Telefone comercial:</strong>
+  <%= @agenda.tel_comercial %>
+</p>
+
+<%= link_to 'Editar', edit_agenda_path(@agenda) %> |
+<%= link_to '<- Voltar ao index', agendas_path %>

@@ -1,0 +1,37 @@
+<h1>Lista de Contatos</h1>
+
+<table border='1'>
+  <thead>
+    <tr>
+      <th width="30%">Nome</th>
+      <th width="20%">Email</th>
+      <th width="15%">Telefone residencial</th>
+      <th width="15%">Telefone celular</th>
+      <th width="15%">Telelefone comercial</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @agendas.where(:user_id => current_user.id).each do |agenda| %>
+      <tr>
+        
+        <td>
+          <%= link_to agenda do %>
+            <%= agenda.sobrenome %>, <%= agenda.nome %>
+        <% end %>
+        </td>
+        <td><%= agenda.email %></td>
+        <td><%= agenda.tel_residencial %></td>
+        <td><%= agenda.tel_celular %></td>
+        <td><%= agenda.tel_comercial %></td>
+        <td><%= link_to 'Editar', edit_agenda_path(agenda) %></td>
+        <td><%= link_to 'Deletar', agenda, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Adicionar Contato +', new_agenda_path %>
